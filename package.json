@@ -1,0 +1,22 @@
+{
+  "name": "project-winter-19",
+  "version": "1.0.0",
+  "description": "Node server for project winter 19",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huynhp24/project-winter-19.git"
+  },
+  "author": "dsfa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huynhp24/project-winter-19/issues"
+  },
+  "homepage": "https://github.com/huynhp24/project-winter-19#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
