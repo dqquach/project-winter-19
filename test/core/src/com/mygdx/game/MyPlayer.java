@@ -11,7 +11,7 @@ public class MyPlayer extends GameObject
 	Sprite sprite;
 	Texture texture;
 	int action;
-	float velocityY;
+	float velocityY, velocityX;
 	
 	//Player constructor
 	public MyPlayer()
@@ -34,6 +34,7 @@ public class MyPlayer extends GameObject
 		sprite = new Sprite(texture, 0, 0, 128, 128);
 		this.setPosition(0, 0);
 		velocityY = 0;
+		velocityX = 0;
 	}
 	
 	//Collision checker, if collision return number representing which side the collision occurred
@@ -108,7 +109,7 @@ public class MyPlayer extends GameObject
 	public void moveLeft(float delta)
 	{
 		//move hitbox pos to the left
-		bottom.x -= (100*delta);
+		bottom.x -= (200*delta);
 		
 		//update pos on sprite
 		sprite.setPosition(bottom.x, bottom.y);
@@ -117,11 +118,16 @@ public class MyPlayer extends GameObject
 	public void moveRight(float delta)
 	{
 		//move hitbox pos to the left
-		bottom.x += (100*delta);
+		bottom.x += (200*delta);
 		
 		
 		//update pos on sprite
 		sprite.setPosition(bottom.x, bottom.y);
+	}
+	
+	public void accelerateToPoint(float delta, int cursorX, int cursorY)
+	{
+		velocityY = 10;
 	}
 	
 	public void draw(SpriteBatch batch)
@@ -131,6 +137,7 @@ public class MyPlayer extends GameObject
 	
 	public void jump()
 	{
+		//if statement to only let the player jump if grounded
 		if (velocityY == 0)
 			velocityY = 10;
 	}

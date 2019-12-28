@@ -97,16 +97,21 @@ public class MyGdxGame extends ApplicationAdapter {
         
         //*****************Controls******************//
         
+        //Cursor Press
+        if (Gdx.input.isTouched())
+        {
+        	player.accelerateToPoint(Gdx.graphics.getDeltaTime(), Gdx.input.getX(), Gdx.input.getY());
+        }
         //Move Left
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
+        if (Gdx.input.isKeyPressed(Input.Keys.A))
         	player.moveLeft(Gdx.graphics.getDeltaTime());
         
         //Move Right
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+        if (Gdx.input.isKeyPressed(Input.Keys.D))
         	player.moveRight(Gdx.graphics.getDeltaTime());
         
         //Jump
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE))
+        if (Gdx.input.isKeyPressed(Input.Keys.W))
         	player.jump();
         
     }
