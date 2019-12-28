@@ -12,6 +12,7 @@ public class MyPlayer extends GameObject
 	Texture texture;
 	int action;
 	float velocityY, velocityX;
+	boolean onGround = false;
 	
 	//Player constructor
 	public MyPlayer()
@@ -26,9 +27,7 @@ public class MyPlayer extends GameObject
 		bottom = new Rectangle(0f, 0f, 128f, 16f);
 		left = new Rectangle(0f, 16f, 64f, 96f);
 		right = new Rectangle(64f, 16f, 64f, 96f);
-		top = new Rectangle(0f, 112f, 64f, 16f);
-		
-		
+		top = new Rectangle(0f, 112f, 64f, 16f);		
 		
 		texture = new Texture("squirtle_128x128.png");
 		sprite = new Sprite(texture, 0, 0, 128, 128);
@@ -40,15 +39,25 @@ public class MyPlayer extends GameObject
 	//Collision checker, if collision return number representing which side the collision occurred
 	public int collisionWith(Rectangle r)
 	{
-		if (left.overlaps(r))
-			return 2;
-		if (right.overlaps(r))
-			return 3;
-		if (bottom.overlaps(r))
-			return 1;
-		if (top.overlaps(r))
-			return 4;
+		float gravitated = bottom.getY() + velocityY;
+		float xLeftDest = bottom.getX() + velocityX;
+		float xRightDest = bottom.getX() + bottom.getWidth() + velocityX;
 		
+		if (left.overlaps(r)) {
+			return 2;
+		}
+		if (right.overlaps(r)) {
+			return 3;
+		}
+		if (gravitated < r.getY() && xLeftDest <= r.getX() + r.width && xLeftDest >= r.getX() && xRightDest >= r.getX() && xRightDest <= r.getX()+r.width)
+            {
+			onGround=true;
+			return 1;
+		}else
+			onGround=false;
+		if (top.overlaps(r)) {
+			return 4;
+		}
 		return -1;
 	}
 	
@@ -57,10 +66,16 @@ public class MyPlayer extends GameObject
 	{
 		//type == 1: Collision with ground, occurs after jumping
 		//reset player's y velocity to 0, and reset the player to be above the ground
-		if (type == 1 || type == 4)
+		if (type == 4)
 		{
 			velocityY = 0;
 			setPosition(bottom.x, y);
+		}
+		
+		if (type == 1)
+		{
+			velocityY = 0;
+			onGround=true;
 		}
 		
 		if (type == 2 || type == 3)
@@ -74,7 +89,9 @@ public class MyPlayer extends GameObject
 	//Updates position for every tick when not grounded
 	public void update(float delta)
 	{
-		velocityY -= 20 * delta;
+		
+		if(onGround==false)
+		velocityY -= 20 * .02;
 		
 		//left.y += velocityY;
 		//right.y += velocityY;
@@ -83,6 +100,7 @@ public class MyPlayer extends GameObject
 		//full.y += velocityY;
 		
 		sprite.setPosition(bottom.x, bottom.y);
+		
 	}
 	
 	public void setPosition(float x, float y)
@@ -137,8 +155,9 @@ public class MyPlayer extends GameObject
 	
 	public void jump()
 	{
+		onGround=false;
 		//if statement to only let the player jump if grounded
-		if (velocityY == 0)
+		if (velocityY < 3 && velocityY > -3)
 			velocityY = 10;
 	}
 
