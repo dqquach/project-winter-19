@@ -122,7 +122,10 @@ public class MyPlayer extends GameObject
 	{
 		//move hitbox pos to the left
 		bottom.x -= (200*delta);
-		
+		top.x -= (200*delta);
+		left.x -= (200*delta);
+		right.x -= (200*delta);
+		full.x -= (200*delta);
 		//update pos on sprite
 		sprite.setPosition(bottom.x, bottom.y);
 	}
@@ -131,6 +134,10 @@ public class MyPlayer extends GameObject
 	{
 		//move hitbox pos to the left
 		bottom.x += (200*delta);
+		top.x += (200*delta);
+		left.x += (200*delta);
+		right.x += (200*delta);
+		full.x += (200*delta);
 		
 		
 		//update pos on sprite

@@ -31,9 +31,7 @@ public class MyGdxGame extends ApplicationAdapter {
         listOfObjects.add(new Block(64,0));
         listOfObjects.add(new Block(128,0));
         listOfObjects.add(new Block(192,0));
-        listOfObjects.add(new Block(192,64));
-        listOfObjects.add(new Block(192,128));
-        listOfObjects.add(new Block(192,192));
+        listOfObjects.add(new Pillar(192,64));
         listOfObjects.add(new Block(256,0));
         listOfObjects.add(new Block(320,0));
         listOfObjects.add(new Block(384,0));
@@ -87,10 +85,10 @@ public class MyGdxGame extends ApplicationAdapter {
         		player.action(1, 0,t.getHitbox().y + t.getHitbox().height);
         		break;
         	case 2:
-        		player.action(2, t.getHitbox().x + t.getHitbox().width + 10  , 0);
+        		player.action(2, t.getHitbox().x + t.getHitbox().width + 1  , 0);
         		break;
         	case 3:
-        		player.action(3, t.getHitbox().x - player.getHitbox().width - 10, 0);
+        		player.action(3, t.getHitbox().x - player.getHitbox().width - 1, 0);
         		break;
         	case 4:
         		player.action(4, 0, t.getHitbox().y-player.getHitbox().height);
