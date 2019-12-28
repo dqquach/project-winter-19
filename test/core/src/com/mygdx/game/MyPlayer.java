@@ -9,7 +9,9 @@ public class MyPlayer extends GameObject
 {
 	Rectangle top, bottom, left, right, full;
 	Sprite sprite;
+	Sprite topHB, bottomHB, leftHB, rightHB;
 	Texture texture;
+	Texture tempTexture;
 	int action;
 	float velocityY, velocityX;
 	
@@ -31,7 +33,12 @@ public class MyPlayer extends GameObject
 		
 		
 		texture = new Texture("squirtle_128x128.png");
+		tempTexture = new Texture("cat.png");
 		sprite = new Sprite(texture, 0, 0, 128, 128);
+//		topHB = new Sprite(texture, 0, 112, 64, 16);
+//		bottomHB = new Sprite(texture, 0, 0, 128, 16);
+//		leftHB = new Sprite(texture, 0, 16, 64, 96);
+//		rightHB = new Sprite(texture, 64, 16, 64, 96);
 		this.setPosition(0, 0);
 		velocityY = 0;
 		velocityX = 0;
@@ -76,6 +83,7 @@ public class MyPlayer extends GameObject
 	{
 		velocityY -= 20 * delta;
 		
+		
 		//left.y += velocityY;
 		//right.y += velocityY;
 		bottom.y += velocityY;
@@ -83,7 +91,10 @@ public class MyPlayer extends GameObject
 		//full.y += velocityY;
 		
 		sprite.setPosition(bottom.x, bottom.y);
+		
 	}
+	
+	
 	
 	public void setPosition(float x, float y)
 	{
@@ -104,6 +115,7 @@ public class MyPlayer extends GameObject
 		top.y = y+ 112;
 		//sets character image
 		sprite.setPosition(x, y);
+		
 	}
 	
 	public void moveLeft(float delta)
@@ -133,6 +145,7 @@ public class MyPlayer extends GameObject
 	public void draw(SpriteBatch batch)
 	{
 		sprite.draw(batch);
+		
 	}
 	
 	public void jump()

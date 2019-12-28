@@ -63,8 +63,13 @@ public class MyGdxGame extends ApplicationAdapter {
         
         //******************Updates******************//
         
-        //Constantly update Y position if not grounded
+        
+        /*Constantly update character position
+         * if cursor is not pressed, update the position w.r.t gravity
+         */
+        if (!Gdx.input.isTouched())
         player.update(Gdx.graphics.getDeltaTime());
+        
         
         //Create ground, 800 = width of the entire screen, 0 = height from the bottom
         Rectangle ground = new Rectangle(0,0,800,10);
