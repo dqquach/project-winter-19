@@ -83,19 +83,21 @@ public class MyPlayer extends GameObject
 	//Updates position for every tick when not grounded
 	public void update(float delta)
 	{
-		if (velocityY > 0)
-			velocityY -= 10 * delta;
-		else
-			velocityY -= 20 * delta;
+		
+		velocityY -= 10 * delta;
 		
 		
-		//left.y += velocityY;
-		//right.y += velocityY;
+		
+		left.y += velocityY;
+		left.x += velocityX;
+		right.y += velocityY;
+		right.x += velocityX;
 		bottom.y += velocityY;
 		bottom.x += velocityX;
 		top.y += velocityY;
 		top.x += velocityX;
-		//full.y += velocityY;
+		full.y += velocityY;
+		full.x += velocityX;
 		
 		sprite.setPosition(bottom.x, bottom.y);
 		
