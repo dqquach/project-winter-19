@@ -21,7 +21,7 @@ public class MyGdxGame extends ApplicationAdapter {
     @Override
     public void create () {
     	camera = new OrthographicCamera();
-    	camera.setToOrtho(false, 1080, 720);
+    	camera.setToOrtho(false, 1920, 1080);
         batch = new SpriteBatch();
         
         player = new MyPlayer();

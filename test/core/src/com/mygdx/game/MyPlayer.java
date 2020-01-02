@@ -86,8 +86,6 @@ public class MyPlayer extends GameObject
 		
 		velocityY -= 10 * delta;
 		
-		
-		
 		left.y += velocityY;
 		left.x += velocityX;
 		right.y += velocityY;
@@ -170,7 +168,8 @@ public class MyPlayer extends GameObject
 		top.x += velocityX;
 		//full.y += velocityY;
 		
-		sprite.setPosition(bottom.x, bottom.y);
+		update(0);
+		//sprite.setPosition(bottom.x, bottom.y);
 	}
 	
 	public void draw(SpriteBatch batch)
@@ -183,7 +182,7 @@ public class MyPlayer extends GameObject
 	{
 		//if statement to only let the player jump if grounded
 		if (velocityY == 0)
-			velocityY = 10;
+			velocityY = 5;
 	}
 
 	@Override
