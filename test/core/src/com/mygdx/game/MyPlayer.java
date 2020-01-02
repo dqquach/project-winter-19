@@ -162,10 +162,10 @@ public class MyPlayer extends GameObject
 		velocityY += (distanceY * delta)/5;
 		velocityX += (distanceX * delta)/5;
 		
-		bottom.y += velocityY;
-		bottom.x += velocityX;
-		top.y += velocityY;
-		top.x += velocityX;
+//		bottom.y += velocityY;
+//		bottom.x += velocityX;
+//		top.y += velocityY;
+//		top.x += velocityX;
 		//full.y += velocityY;
 		
 		update(0);

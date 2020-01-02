@@ -13,7 +13,7 @@ public class Pillar extends GameObject{
 	
 	public Pillar(int x, int y)
 	{
-		hitBox = new Rectangle(x, y, 64, 128);
+		hitBox = new Rectangle(x, y, 64f, 128f);
 		texture = new Texture("grassblock.png");
 		sprite = new Sprite(texture, 0, 0, 64, 128);
 		setPosition(x,y);

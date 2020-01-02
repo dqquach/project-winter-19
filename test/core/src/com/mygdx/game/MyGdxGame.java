@@ -31,19 +31,19 @@ public class MyGdxGame extends ApplicationAdapter {
         listOfObjects.add(new Walls(1910,0));
         listOfObjects.add(new GroundOrCeiling(0,0));
         listOfObjects.add(new GroundOrCeiling(0,1070));
-        listOfObjects.add(new Block(0,0));
-        listOfObjects.add(new Block(64,0));
-        listOfObjects.add(new Block(128,0));
-        listOfObjects.add(new Block(192,0));
-        listOfObjects.add(new Pillar(192,64));
-        listOfObjects.add(new Block(256,0));
-        listOfObjects.add(new Block(320,0));
-        listOfObjects.add(new Block(384,0));
-        listOfObjects.add(new Block(448,0));
-        listOfObjects.add(new Block(512,64));
-        listOfObjects.add(new Block(576,128));
-        listOfObjects.add(new Block(640,192));
-        listOfObjects.add(new Block(704,256));
+//        listOfObjects.add(new Block(0,0));
+//        listOfObjects.add(new Block(64,0));
+//        listOfObjects.add(new Block(128,0));
+//        listOfObjects.add(new Block(192,0));
+//        listOfObjects.add(new Pillar(192,64));
+//        listOfObjects.add(new Block(256,0));
+//        listOfObjects.add(new Block(320,0));
+//        listOfObjects.add(new Block(384,0));
+//        listOfObjects.add(new Block(448,0));
+//        listOfObjects.add(new Block(512,64));
+//        listOfObjects.add(new Block(576,128));
+//        listOfObjects.add(new Block(640,192));
+//        listOfObjects.add(new Block(704,256));
         
     }
 
@@ -74,11 +74,11 @@ public class MyGdxGame extends ApplicationAdapter {
         
         
         //Create ground, 800 = width of the entire screen, 0 = height from the bottom
-        Rectangle ground = new Rectangle(0,0,800,10);
-        if (player.collisionWith(ground) != -1)
-        {
-        	player.action(1, 0, 10);
-        }
+//        Rectangle ground = new Rectangle(0,0,800,10);
+//        if (player.collisionWith(ground) != -1)
+//        {
+//        	player.action(1, 0, 10);
+//        }
         
         //If the player collides with any object, the player's y position changes to be on top of the object
         for (GameObject t: listOfObjects)
