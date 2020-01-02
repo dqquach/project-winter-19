@@ -67,12 +67,14 @@ public class MyPlayer extends GameObject
 		if (type == 1 || type == 4)
 		{
 			velocityY = 0;
+			velocityX = 0;
 			setPosition(bottom.x, y);
 		}
 		
 		if (type == 2 || type == 3)
 		{
 			velocityY = 0;
+			velocityX = 0;
 			setPosition(x, bottom.y);
 		}
 			
@@ -81,13 +83,18 @@ public class MyPlayer extends GameObject
 	//Updates position for every tick when not grounded
 	public void update(float delta)
 	{
-		velocityY -= 20 * delta;
+		if (velocityY > 0)
+			velocityY -= 10 * delta;
+		else
+			velocityY -= 20 * delta;
 		
 		
 		//left.y += velocityY;
 		//right.y += velocityY;
 		bottom.y += velocityY;
+		bottom.x += velocityX;
 		top.y += velocityY;
+		top.x += velocityX;
 		//full.y += velocityY;
 		
 		sprite.setPosition(bottom.x, bottom.y);
@@ -146,7 +153,22 @@ public class MyPlayer extends GameObject
 	
 	public void accelerateToPoint(float delta, int cursorX, int cursorY)
 	{
-		velocityY = 10;
+		float posX = full.getX();
+		float posY = full.getY();
+		
+		float distanceX = cursorX - posX;
+		float distanceY = cursorY - posY;
+		
+		velocityY += (distanceY * delta)/5;
+		velocityX += (distanceX * delta)/5;
+		
+		bottom.y += velocityY;
+		bottom.x += velocityX;
+		top.y += velocityY;
+		top.x += velocityX;
+		//full.y += velocityY;
+		
+		sprite.setPosition(bottom.x, bottom.y);
 	}
 	
 	public void draw(SpriteBatch batch)
