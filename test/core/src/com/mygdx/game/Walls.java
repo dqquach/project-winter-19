@@ -13,7 +13,7 @@ public class Walls extends GameObject{
 	
 	public Walls(int x, int y)
 	{
-		hitBox = new Rectangle(x, y, 128, 1080);
+		hitBox = new Rectangle(x, y, 128f, 1080f);
 		texture = new Texture("grassblock.png");
 		sprite = new Sprite(texture, 0, 0, 10, 1080);
 		setPosition(x,y);

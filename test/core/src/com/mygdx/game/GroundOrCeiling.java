@@ -12,7 +12,7 @@ public class GroundOrCeiling extends GameObject{
 
 	public GroundOrCeiling(int x, int y)
 	{
-		hitBox = new Rectangle(x, y, 1920, 10);
+		hitBox = new Rectangle(x, y, 1920f, 30f);
 		texture = new Texture("grassblock.png");
 		sprite = new Sprite(texture, 0, 0, 1920, 10);
 		setPosition(x,y);
