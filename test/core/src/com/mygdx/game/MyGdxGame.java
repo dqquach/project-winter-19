@@ -27,6 +27,10 @@ public class MyGdxGame extends ApplicationAdapter {
         player = new MyPlayer();
         player.setPosition(400, 400);
         
+        listOfObjects.add(new Walls(0,0));
+        listOfObjects.add(new Walls(1910,0));
+        listOfObjects.add(new GroundOrCeiling(0,0));
+        listOfObjects.add(new GroundOrCeiling(0,1070));
         listOfObjects.add(new Block(0,0));
         listOfObjects.add(new Block(64,0));
         listOfObjects.add(new Block(128,0));
@@ -81,6 +85,7 @@ public class MyGdxGame extends ApplicationAdapter {
         {
         	switch (player.collisionWith(t.getHitbox()))
         	{
+        	
         	case 1:
         		player.action(1, 0,t.getHitbox().y + t.getHitbox().height);
         		break;

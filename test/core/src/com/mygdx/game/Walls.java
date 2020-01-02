@@ -5,16 +5,17 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public class Ground extends GameObject{
+public class Walls extends GameObject{
+
 	Rectangle hitBox;
 	Sprite sprite;
 	Texture texture;
-
-	public Ground(int x, int y)
+	
+	public Walls(int x, int y)
 	{
-		hitBox = new Rectangle(x, y, 64, 64);
+		hitBox = new Rectangle(x, y, 128, 1080);
 		texture = new Texture("grassblock.png");
-		sprite = new Sprite(texture, 0, 0, 64, 64);
+		sprite = new Sprite(texture, 0, 0, 10, 1080);
 		setPosition(x,y);
 	}
 	@Override
@@ -38,7 +39,9 @@ public class Ground extends GameObject{
 	@Override
 	public void setPosition(float x, float y) {
 		// TODO Auto-generated method stub
-		
+		hitBox.x = x;
+		hitBox.y = y;
+		sprite.setPosition(x, y);
 	}
 
 	@Override
@@ -56,7 +59,7 @@ public class Ground extends GameObject{
 	@Override
 	public void draw(SpriteBatch batch) {
 		// TODO Auto-generated method stub
-		
+		sprite.draw(batch);
 	}
 
 	@Override
@@ -68,7 +71,7 @@ public class Ground extends GameObject{
 	@Override
 	public Rectangle getHitbox() {
 		// TODO Auto-generated method stub
-		return null;
+		return hitBox;
 	}
 
 }
