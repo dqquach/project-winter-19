@@ -32,7 +32,7 @@ public class MyPlayer extends GameObject
 		
 		
 		
-		texture = new Texture("squirtle_128x128.png");
+		texture = new Texture("goldfish.png");
 		tempTexture = new Texture("cat.png");
 		sprite = new Sprite(texture, 0, 0, 128, 128);
 //		topHB = new Sprite(texture, 0, 112, 64, 16);
