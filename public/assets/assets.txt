@@ -2,8 +2,12 @@ d:assets:0:application/unknown
 i:badlogic.jpg:68465:image/jpeg
 i:cat.png:2569:image/png
 i:cat_64x64.png:3611:image/png
+i:goldenfish.png:785:image/png
+i:goldfish.png:773:image/png
 i:grassblock.png:806:image/png
 i:iris.png:3910:image/png
+i:ocean.png:6435:image/png
+i:ocean_1920_1080.png:16659:image/png
 i:squirtle.png:8880:image/png
 i:squirtle_128x128.png:13017:image/png
 t:com/badlogic/gdx/graphics/g3d/particles/particles.fragment.glsl:859:application/unknown
